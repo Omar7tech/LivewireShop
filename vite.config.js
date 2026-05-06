@@ -14,5 +14,10 @@ export default defineConfig({
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
+        host: 'livewireshop.test', // Ensures it's accessible from the correct domain
+        port: 5173, // Default Vite port, but you can change it if needed
+        hmr: {
+            host: 'livewireshop.test', // Ensures HMR connects properly
+        },
     },
 });

@@ -1,3 +1,3 @@
-
 <div>
-heyss</div>
+    <x-home.hero />
+</div>
