@@ -21,6 +21,18 @@ export function initHeroAnimation() {
 
   console.log('Hero animation initialized');
 
+  const heroText = content.querySelector('.hero-text');
+
+  // Entrance animation - text slides from completely off-screen right
+  if (heroText) {
+    gsap.from(heroText, {
+      x: window.innerWidth,
+      duration: 2,
+      ease: "power3.out",
+      delay: 0.5
+    });
+  }
+
   // Scroll parallax - text moves DOWN behind furniture
   gsap.to(content, {
     y: 300,
