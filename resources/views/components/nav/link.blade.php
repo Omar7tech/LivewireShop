@@ -1,6 +1,6 @@
 <a wire:navigate href="{{ $href }}"
    {{ $attributes->merge([
-       'class' => 'uppercase text-gray-700 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/90 hover:text-gray-900'
+       'class' => 'font-roboto-mono uppercase text-gray-700 px-3 py-2 rounded-md transition-all duration-200 hover:bg-white/90 hover:text-gray-900 text-sm font-medium'
    ]) }}>
     {{ $slot }}
 </a>

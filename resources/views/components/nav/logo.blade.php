@@ -1,1 +1,1 @@
-<h1 class="text-3xl text-white">Furniture</h1>
+<h1 class="text-3xl text-white">Furniture.</h1>
