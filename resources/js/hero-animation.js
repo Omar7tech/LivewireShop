@@ -23,15 +23,54 @@ export function initHeroAnimation() {
 
   const heroText = content.querySelector('.hero-text');
 
-  // Entrance animation - text slides from completely off-screen right
-  if (heroText) {
-    gsap.from(heroText, {
-      x: window.innerWidth,
-      duration: 2,
-      ease: "power3.out",
-      delay: 0.5
+  // Set initial state immediately to prevent flash
+  gsap.set(container, {
+    clipPath: "circle(1% at 50% 50%)"
+  });
+
+  // Wait for all images to load
+  const images = container.querySelectorAll('img');
+  const imagePromises = Array.from(images).map(img => {
+    if (img.complete) {
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
+      img.onload = resolve;
+      img.onerror = resolve;
     });
-  }
+  });
+
+  Promise.all(imagePromises).then(() => {
+    console.log('All images loaded, starting animation');
+
+    // Entire hero expands from perfect circle
+    gsap.to(container, {
+      clipPath: "circle(100% at 50% 50%)",
+      duration: 1.8,
+      ease: "power2.out"
+    });
+
+    // Entrance animation - text slides from completely off-screen right
+    if (heroText) {
+      gsap.from(heroText, {
+        x: window.innerWidth,
+        duration: 2,
+        ease: "power3.out",
+        delay: 1
+      });
+    }
+
+    // Buttons slide in from right - no fade to preserve liquid effect
+    const heroButtons = container.querySelector('.hero-buttons');
+    if (heroButtons) {
+      gsap.from(heroButtons, {
+        x: 400,
+        duration: 1.5,
+        ease: "power3.out",
+        delay: 1.5
+      });
+    }
+  });
 
   // Scroll parallax - text moves DOWN behind furniture
   gsap.to(content, {

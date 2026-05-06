@@ -2,7 +2,7 @@
   <div
     id="hero-container"
     class="h-full w-full sm:rounded-none md:rounded-lg relative overflow-hidden"
-    style="background: #2d5247;">
+    style="background: #2d5247; clip-path: circle(1% at 50% 50%);">
 
     <!-- Background layer (wall + floor) -->
     <div class="hero-layer hero-background absolute inset-0 w-full h-full z-0" style="will-change: filter;">
