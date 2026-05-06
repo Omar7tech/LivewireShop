@@ -33,13 +33,13 @@ export function initHeroAnimation() {
     }
   });
 
-  // Background gradually becomes dark grayscale - sharp, dark, blurred
+  // Optimized - lighter effect, no blur for better performance
   gsap.fromTo(background,
     {
-      filter: "grayscale(0%) brightness(1) contrast(1) blur(0px)"
+      filter: "brightness(1) saturate(1)"
     },
     {
-      filter: "grayscale(100%) brightness(0.2) contrast(1.4) blur(4px)",
+      filter: "brightness(0.4) saturate(0.3)",
       ease: "none",
       scrollTrigger: {
         trigger: container,

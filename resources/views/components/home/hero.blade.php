@@ -5,7 +5,7 @@
     style="background: #2d5247;">
 
     <!-- Background layer (wall + floor) -->
-    <div class="hero-layer hero-background absolute inset-0 w-full h-full z-0">
+    <div class="hero-layer hero-background absolute inset-0 w-full h-full z-0" style="will-change: filter;">
       <img
         src="{{ asset('covers/bachround-furniture-removed.png') }}"
         alt="Background"
