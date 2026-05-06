@@ -33,6 +33,23 @@ export function initHeroAnimation() {
     }
   });
 
+  // Background gradually becomes dark grayscale - sharp, dark, blurred
+  gsap.fromTo(background,
+    {
+      filter: "grayscale(0%) brightness(1) contrast(1) blur(0px)"
+    },
+    {
+      filter: "grayscale(100%) brightness(0.2) contrast(1.4) blur(4px)",
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    }
+  );
+
   // Mouse parallax effect
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
