@@ -10,7 +10,8 @@
 
         @livewireStyles
     </head>
-    <body>
+    <body class="max-w-[1700px] mx-auto">
+        <x-nav />
         {{ $slot }}
 
         @livewireScripts
